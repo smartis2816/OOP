@@ -1,26 +1,35 @@
-package Seminar1;
+package CreatingFantasyGame;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<FantasyHero> heroes = new ArrayList<>(); // лист для ручного заполнения героями
-        heroes.add(new Peasant());
-        heroes.add(new Crossbowman());
-        heroes.add(new Monk());
-        heroes.add(new Rogue());
-        heroes.add(new Sniper());
-        heroes.add(new Spearman());
-        heroes.add(new Warlock());
-
-        heroes.forEach(item -> System.out.println(item));
-
-        ArrayList<FantasyHero> heroesRandomSquad = createRandomHeroes(); // Список из 50 рандомных персонажей
-        heroesRandomSquad.forEach(item -> System.out.println(item));
+        ArrayList<FantasyHero> darkTeam = new ArrayList<>();
+        darkTeam.add(new Peasant());
+        darkTeam.add(new Peasant());
+        darkTeam.add(new Rogue());
+        darkTeam.add(new Rogue());
+        darkTeam.add(new Rogue());
+        darkTeam.add(new Sniper());
+        darkTeam.add(new Sniper());
+        darkTeam.add(new Sniper());
+        darkTeam.add(new Warlock());
+        darkTeam.add(new Warlock());
+        darkTeam.forEach(hero -> System.out.println(hero));
         System.out.println();
-        printClass(heroesRandomSquad, "Monk"); // Вывод в консоль информации по определённому классу (на примере Monk)
-
+        ArrayList<FantasyHero> whiteTeam = new ArrayList<>();
+        whiteTeam.add(new Peasant());
+        whiteTeam.add(new Peasant());
+        whiteTeam.add(new Rogue());
+        whiteTeam.add(new Rogue());
+        whiteTeam.add(new Spearman());
+        whiteTeam.add(new Spearman());
+        whiteTeam.add(new Crossbowman());
+        whiteTeam.add(new Crossbowman());
+        whiteTeam.add(new Monk());
+        whiteTeam.add(new Monk());
+        whiteTeam.forEach(hero -> System.out.println(hero));
 
     }
 
