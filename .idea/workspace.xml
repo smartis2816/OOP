@@ -4,39 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78372542-e7c5-4623-8c3c-20ad67448b0a" name="Changes" comment="homework 1 completed">
-      <change afterPath="$PROJECT_DIR$/src/main/java/CreatingFantasyGame/HeroActions.java" afterDir="false" />
+    <list default="true" id="78372542-e7c5-4623-8c3c-20ad67448b0a" name="Changes" comment="homework 2 completed">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ConsoleView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Lection1/Ex001/PointMethod.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Lection1/Ex002/Point2D.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Lection1/Ex002/Program.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Lection1/Ex003/Point2D.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Lection1/Ex003/Program.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Lection1/Ex004/Program.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Lection1/Ex004/Robot1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Lection1/Ex004/Robot2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Lection1/Ex004/Robot3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Lection1/Ex005/Magician.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Lection1/Ex005/Priest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Lection1/Ex005/Program.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Lection1/Ex006/BaseHero.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Lection1/Ex006/Magician.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Lection1/Ex006/Priest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Lection1/Ex006/Program.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Lection1/Ex006/Teams.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Lection1/Ex007/BaseHero.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Lection1/Ex007/Magician.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Lection1/Ex007/Priest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Lection1/Ex007/Program.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Seminar1/Crossbowman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreatingFantasyGame/Crossbowman.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Seminar1/FantasyHero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreatingFantasyGame/FantasyHero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Seminar1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreatingFantasyGame/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Seminar1/Monk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreatingFantasyGame/Monk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Seminar1/Peasant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreatingFantasyGame/Peasant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Seminar1/Rogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreatingFantasyGame/Rogue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Seminar1/Sniper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreatingFantasyGame/Sniper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Seminar1/Spearman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreatingFantasyGame/Spearman.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Seminar1/Warlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreatingFantasyGame/Warlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreatingFantasyGame/Crossbowman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Characters/Crossbowman.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreatingFantasyGame/FantasyHero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Characters/FantasyHero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreatingFantasyGame/HeroActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Characters/HeroActions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreatingFantasyGame/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreatingFantasyGame/Monk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Characters/Monk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreatingFantasyGame/Peasant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Characters/Peasant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreatingFantasyGame/Rogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Characters/Rogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreatingFantasyGame/Sniper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Characters/Sniper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreatingFantasyGame/Spearman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Characters/Spearman.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreatingFantasyGame/Warlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Characters/Warlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,8 +33,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -68,12 +50,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -118,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669663306666</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="homework 2 completed">
+      <created>1669844271505</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1669844271505</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -136,6 +131,7 @@
     <MESSAGE value="Initial" />
     <MESSAGE value="heroes created" />
     <MESSAGE value="homework 1 completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="homework 1 completed" />
+    <MESSAGE value="homework 2 completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="homework 2 completed" />
   </component>
 </project>

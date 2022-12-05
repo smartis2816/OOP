@@ -1,4 +1,4 @@
-package CreatingFantasyGame;
+package Characters;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,11 +30,10 @@ public abstract class FantasyHero implements HeroActions {
     }
 
     public void step(ArrayList<FantasyHero> band) {
-
     }
 
     public String getInfo() {
-        return new StringJoiner(", ",  this.getClass().getSimpleName() + " [", "]")
+        return new StringJoiner(", ", this.getClass().getSimpleName() + " [", "]")
                 .add("attack = " + attack)
                 .add("defence = " + defence)
                 .add("shoot = " + shoot)

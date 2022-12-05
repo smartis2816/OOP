@@ -1,4 +1,4 @@
-package CreatingFantasyGame;
+package Characters;
 
 import java.util.ArrayList;
 
