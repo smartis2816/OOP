@@ -2,59 +2,54 @@ import Characters.*;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
-    public static final int GANG_SIZE = 10;
+    public static final int BAND_SIZE = 10;
+    public static ArrayList<BasicHero> darkTeam;
+    public static ArrayList<BasicHero> whiteTeam;
     public static void main(String[] args) {
+        initBands();
+        // darkTeam.forEach(hero -> System.out.println(hero));
+        // whiteTeam.forEach(hero -> System.out.println(hero));
+        ConsoleView.view();
+        Scanner scanner = new Scanner(System.in);
 
-//        ArrayList<FantasyHero> darkTeam = new ArrayList<>();
-//        darkTeam.add(new Peasant());
-//        darkTeam.add(new Peasant());
-//        darkTeam.add(new Rogue());
-//        darkTeam.add(new Rogue());
-//        darkTeam.add(new Rogue());
-//        darkTeam.add(new Sniper());
-//        darkTeam.add(new Sniper());
-//        darkTeam.add(new Sniper());
-//        darkTeam.add(new Warlock());
-//        darkTeam.add(new Warlock());
-//        darkTeam.forEach(hero -> System.out.println(hero));
-//        System.out.println();
-//        ArrayList<FantasyHero> whiteTeam = new ArrayList<>();
-//        whiteTeam.add(new Peasant());
-//        whiteTeam.add(new Peasant());
-//        whiteTeam.add(new Rogue());
-//        whiteTeam.add(new Rogue());
-//        whiteTeam.add(new Spearman());
-//        whiteTeam.add(new Spearman());
-//        whiteTeam.add(new Crossbowman());
-//        whiteTeam.add(new Crossbowman());
-//        whiteTeam.add(new Monk());
-//        whiteTeam.add(new Monk());
-//        whiteTeam.forEach(hero -> System.out.println(hero));
-        System.out.println(ConsoleView.top10);
-
+        while (true){
+            ConsoleView.view();
+            System.out.println("Press ENTER");
+            scanner.nextLine();
+        }
     }
 
-    public static ArrayList<FantasyHero> createRandomHeroes() {
-        ArrayList<FantasyHero> heroesRandom = new ArrayList<>();
+    public static void initBands() {
+        darkTeam = new ArrayList<>();
+        whiteTeam = new ArrayList<>();
         Random r = new Random();
-        for (int i = 0; i < 50; i++) {
-            switch (r.nextInt(1, 8)) {
-                case 1 -> heroesRandom.add(new Peasant());
-                case 2 -> heroesRandom.add(new Crossbowman());
-                case 3 -> heroesRandom.add(new Monk());
-                case 4 -> heroesRandom.add(new Rogue());
-                case 5 -> heroesRandom.add(new Sniper());
-                case 6 -> heroesRandom.add(new Spearman());
-                case 7 -> heroesRandom.add(new Warlock());
+        int x = 1;
+        int y = 1;
+        for (int i = 0; i < BAND_SIZE; i++) {
+            switch (r.nextInt(1, 5)) {
+                case 1 -> darkTeam.add(new Peasant(darkTeam, x++, y));
+                case 2 -> darkTeam.add(new Spearman(darkTeam, x++, y));
+                case 3 -> darkTeam.add(new Crossbowman(darkTeam, x++, y));
+                case 4 -> darkTeam.add(new Warlock(darkTeam, x++, y));
             }
         }
-        return heroesRandom;
+        x = 1;
+        y = 10;
+        for (int i = 0; i < BAND_SIZE; i++) {
+            switch (r.nextInt(1, 5)) {
+                case 1 -> whiteTeam.add(new Peasant(whiteTeam, x++, y));
+                case 2 -> whiteTeam.add(new Rogue(whiteTeam, x++, y));
+                case 3 -> whiteTeam.add(new Sniper(whiteTeam, x++, y));
+                case 4 -> whiteTeam.add(new Monk(whiteTeam, x++, y));
+            }
+        }
     }
 
-    public static void printClass(ArrayList<FantasyHero> heroes, String className) {
-        for (FantasyHero item : heroes) {
+    public static void printClass(ArrayList<BasicHero> heroes, String className) {
+        for (BasicHero item : heroes) {
             if (item.getClass().getSimpleName().equals(className)) {
                 System.out.println(item);
             }

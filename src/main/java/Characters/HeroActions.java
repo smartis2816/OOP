@@ -4,5 +4,5 @@ import java.util.ArrayList;
 
 public interface HeroActions {
     String getInfo();
-    void step(ArrayList<FantasyHero> band);
+    void step(ArrayList<BasicHero> band);
 }
