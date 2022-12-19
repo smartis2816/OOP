@@ -7,21 +7,22 @@ import java.util.StringJoiner;
 public abstract class BasicHero implements HeroActions {
     private int attack;
     private int defence;
-    private int shoot;
-    private int[] damage;
+    protected int shoot;
+    protected int[] damage;
     private int health;
     private int speed;
     private boolean delivery;
     private boolean magic;
     private String name;
-    private String status;
+    protected String status;
     private int maxHealth;
     private static int idCounter;
     private int playerID;
     protected ArrayList<BasicHero> band;
     protected Vector2 position;
+    protected int priority;
 
-    public BasicHero(int attack, int defence, int shoot, int[] damage, int health, int speed, boolean delivery, boolean magic, String name) {
+    public BasicHero(int attack, int defence, int shoot, int[] damage, int health, int speed, boolean delivery, boolean magic, String name, int priority) {
         this.attack = attack;
         this.defence = defence;
         this.shoot = shoot;
@@ -32,6 +33,8 @@ public abstract class BasicHero implements HeroActions {
         this.magic = magic;
         this.name = name;
         this.maxHealth = health;
+        this.status = "stand";
+        this.priority = priority;
         playerID = idCounter++;
     }
 
@@ -52,13 +55,14 @@ public abstract class BasicHero implements HeroActions {
     }
 
     public String getParameters() {
-        ArrayList <String> parameters = new ArrayList<>();
+        ArrayList<String> parameters = new ArrayList<>();
         parameters.add(this.name);
+        parameters.add(status);
         parameters.add(Integer.toString(attack));
         parameters.add(Integer.toString(defence));
         parameters.add(Integer.toString(shoot));
         parameters.add(Arrays.toString(damage));
-        parameters.add(Integer.toString(health));
+        parameters.add(Integer.toString(getCurrentHealth()));
         parameters.add(Integer.toString(speed));
         parameters.add(String.valueOf(delivery));
         parameters.add(String.valueOf(magic));
@@ -74,8 +78,28 @@ public abstract class BasicHero implements HeroActions {
 
     }
 
+    protected int getDamageValue(BasicHero target) {
+        int power = this.attack - target.getDefence();
+        int damageValue = 0;
+        if (power == 0) damageValue = (this.damage[0] + this.damage[1]) / 2;
+        if (power > 0) damageValue = this.damage[1];
+        if (power < 0) damageValue = this.damage[0];
+        return damageValue;
+    }
+
+    protected void checkAliveOrDead(BasicHero hero){
+        if (this.getCurrentHealth() <= 0) {
+            this.status = "dead";
+            this.health = 0;
+        }
+    }
+
     public static String getSpace(int count) {
         return " ".repeat(Math.max(0, count));
+    }
+
+    public int getSpeed() {
+        return speed;
     }
 
     @Override
@@ -89,6 +113,10 @@ public abstract class BasicHero implements HeroActions {
 
     public String getName() {
         return name;
+    }
+
+    public int getDefence() {
+        return defence;
     }
 
     public int getCurrentHealth() {
@@ -107,8 +135,15 @@ public abstract class BasicHero implements HeroActions {
         this.health = health;
     }
 
-    public int getPlayerID() {
-        return playerID;
+    public int getPriority() {
+        return priority;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public ArrayList<BasicHero> getBand() {
+        return band;
+    }
 }

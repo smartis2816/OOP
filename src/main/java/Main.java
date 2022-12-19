@@ -1,24 +1,26 @@
 import Characters.*;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Main {
     public static final int BAND_SIZE = 10;
     public static ArrayList<BasicHero> darkTeam;
     public static ArrayList<BasicHero> whiteTeam;
+    public static ArrayList<BasicHero> bothSides;
+
     public static void main(String[] args) {
         initBands();
-        // darkTeam.forEach(hero -> System.out.println(hero));
-        // whiteTeam.forEach(hero -> System.out.println(hero));
-        ConsoleView.view();
         Scanner scanner = new Scanner(System.in);
 
         while (true){
             ConsoleView.view();
             System.out.println("Press ENTER");
             scanner.nextLine();
+            turn(darkTeam, whiteTeam);
         }
     }
 
@@ -48,6 +50,23 @@ public class Main {
         }
     }
 
+    public static ArrayList<BasicHero> sortBothSides(ArrayList<BasicHero> darkTeam, ArrayList<BasicHero> whiteTeam) {
+        bothSides = new ArrayList<>();
+        bothSides.addAll(darkTeam);
+        bothSides.addAll(whiteTeam);
+        bothSides.sort(Comparator.comparing(BasicHero::getPriority).reversed());
+        // bothSides.forEach(System.out::println);
+        return bothSides;
+    }
+
+    public static void turn(ArrayList<BasicHero> darkTeam, ArrayList<BasicHero> whiteTeam) {
+        for (BasicHero hero : sortBothSides(darkTeam, whiteTeam)) {
+            if (!hero.getStatus().equals("dead"))
+                if (hero.getBand().equals(darkTeam)) hero.step(whiteTeam);
+                else hero.step(darkTeam);
+        }
+    }
+
     public static void printClass(ArrayList<BasicHero> heroes, String className) {
         for (BasicHero item : heroes) {
             if (item.getClass().getSimpleName().equals(className)) {
@@ -55,5 +74,4 @@ public class Main {
             }
         }
     }
-
 }

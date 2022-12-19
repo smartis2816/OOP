@@ -5,17 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78372542-e7c5-4623-8c3c-20ad67448b0a" name="Changes" comment="seminar 3">
-      <change afterPath="$PROJECT_DIR$/src/main/java/AnsiColors.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Characters/Vector2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Characters/BasicHero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Characters/BasicHero.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Characters/Crossbowman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Characters/Crossbowman.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Characters/FantasyHero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Characters/BasicHero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Characters/HeroActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Characters/HeroActions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Characters/Monk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Characters/Monk.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Characters/Peasant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Characters/Peasant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Characters/Rogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Characters/Rogue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Characters/Sniper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Characters/Sniper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Characters/Spearman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Characters/Spearman.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Characters/Vector2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Characters/Vector2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Characters/Warlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Characters/Warlock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ConsoleView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ConsoleView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
@@ -139,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670261581403</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="seminar 3">
+      <created>1670961078247</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1670961078247</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

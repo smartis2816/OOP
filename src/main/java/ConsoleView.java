@@ -11,7 +11,7 @@ public class ConsoleView {
 
     public static void view() {
         if (step++ == 0) System.out.println(AnsiColors.ANSI_RED + "First step" + AnsiColors.ANSI_RESET);
-        else System.out.print(AnsiColors.ANSI_RED + "Step: " + step + AnsiColors.ANSI_RESET);
+        else System.out.println(AnsiColors.ANSI_RED + "Step: " + step + AnsiColors.ANSI_RESET);
         System.out.print(BasicHero.getSpace(24));
         System.out.print(AnsiColors.ANSI_GREEN + printTopic() + AnsiColors.ANSI_RESET);
         System.out.println(AnsiColors.ANSI_BLUE + printTopic() + AnsiColors.ANSI_RESET);
@@ -52,6 +52,7 @@ public class ConsoleView {
     public static String printTopic(){
         StringBuilder sb = new StringBuilder();
         sb.append("Name         ");
+        sb.append("status    ");
         sb.append("attack    ");
         sb.append("defence   ");
         sb.append("shoot     ");
