@@ -1,10 +1,7 @@
+import Characters.AbstractClasses.BasicHero;
 import Characters.*;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Random;
-import java.util.Scanner;
-import java.util.stream.Collectors;
+import java.util.*;
 
 public class Main {
     public static final int BAND_SIZE = 10;
@@ -16,11 +13,13 @@ public class Main {
         initBands();
         Scanner scanner = new Scanner(System.in);
 
-        while (true){
+        while (true) {
             ConsoleView.view();
             System.out.println("Press ENTER");
             scanner.nextLine();
-            turn(darkTeam, whiteTeam);
+            makeTurn(darkTeam, whiteTeam);
+            //darkTeam.forEach(hero -> hero.step(whiteTeam));
+            //whiteTeam.forEach(hero -> hero.step(darkTeam));
         }
     }
 
@@ -50,6 +49,33 @@ public class Main {
         }
     }
 
+    public static void makeTurn(ArrayList<BasicHero> darkTeam, ArrayList<BasicHero> whiteTeam) {
+        for (BasicHero hero : darkTeam) {
+            if (hero.getName().equals("Crossbowman")) hero.step(whiteTeam);
+        }
+        for (BasicHero hero : whiteTeam) {
+            if (hero.getName().equals("Sniper")) hero.step(darkTeam);
+        }
+        for (BasicHero hero : darkTeam) {
+            if (hero.getName().equals("Spearman")) hero.step(whiteTeam);
+        }
+        for (BasicHero hero : whiteTeam) {
+            if (hero.getName().equals("Rogue")) hero.step(darkTeam);
+        }
+        for (BasicHero hero : darkTeam) {
+            if (hero.getName().equals("Warlock")) hero.step(whiteTeam);
+        }
+        for (BasicHero hero : whiteTeam) {
+            if (hero.getName().equals("Monk")) hero.step(darkTeam);
+        }
+        for (BasicHero hero : darkTeam) {
+            if (hero.getName().equals("Peasant")) hero.step(whiteTeam);
+        }
+        for (BasicHero hero : whiteTeam) {
+            if (hero.getName().equals("Peasant")) hero.step(darkTeam);
+        }
+    }
+    /*
     public static ArrayList<BasicHero> sortBothSides(ArrayList<BasicHero> darkTeam, ArrayList<BasicHero> whiteTeam) {
         bothSides = new ArrayList<>();
         bothSides.addAll(darkTeam);
@@ -57,6 +83,7 @@ public class Main {
         bothSides.sort(Comparator.comparing(BasicHero::getPriority).reversed());
         // bothSides.forEach(System.out::println);
         return bothSides;
+
     }
 
     public static void turn(ArrayList<BasicHero> darkTeam, ArrayList<BasicHero> whiteTeam) {
@@ -74,4 +101,5 @@ public class Main {
             }
         }
     }
+    */
 }

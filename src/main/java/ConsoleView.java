@@ -1,5 +1,6 @@
-import Characters.BasicHero;
-import Characters.Vector2;
+import Characters.AbstractClasses.BasicHero;
+import View.AnsiColors;
+import View.Coordinates;
 
 import java.util.Collections;
 
@@ -20,8 +21,8 @@ public class ConsoleView {
         for (int i = 1; i <= Main.BAND_SIZE - 1; i++) {
             StringBuilder heroData = new StringBuilder("   ");
             for (int j = 1; j <= Main.BAND_SIZE; j++) {
-                System.out.print(getChar(new Vector2(i, j)));
-                heroData.append(getHeroData(new Vector2(i, j)));
+                System.out.print(getChar(new Coordinates(i, j)));
+                heroData.append(getHeroData(new Coordinates(i, j)));
             }
             System.out.print(formatDiv("k"));
             System.out.println(heroData);
@@ -29,42 +30,50 @@ public class ConsoleView {
         }
 
         for (int j = 1; j <= Main.BAND_SIZE; j++) {
-            System.out.print(getChar(new Vector2(10, j)));
+            System.out.print(getChar(new Coordinates(10, j)));
         }
         System.out.print(formatDiv("k"));
-        System.out.println("   " + getHeroData(new Vector2(10, 1)) + getHeroData(new Vector2(10, 10)));
+        System.out.println("   " + getHeroData(new Coordinates(10, 1)) + getHeroData(new Coordinates(10, 10)));
         System.out.println(ConsoleView.bottom10);
     }
 
-    private static String getChar(Vector2 position) {
+    private static String getChar(Coordinates position) {
         String str = "| ";
         for (int i = 0; i < Main.BAND_SIZE; i++) {
+            boolean alive = false;
             if (Main.darkTeam.get(i).getPosition().isEqual(position)) {
-                str = "\u2551" + AnsiColors.ANSI_GREEN + Main.darkTeam.get(i).getName().charAt(0) + AnsiColors.ANSI_RESET;
+                if (Main.darkTeam.get(i).getStatus().equals("Dead")) {
+                    str = "\u2551" + AnsiColors.ANSI_RED + Main.darkTeam.get(i).getName().charAt(0) + AnsiColors.ANSI_RESET;
+                } else
+                    str = "\u2551" + AnsiColors.ANSI_GREEN + Main.darkTeam.get(i).getName().charAt(0) + AnsiColors.ANSI_RESET;
+                if (!Main.darkTeam.get(i).getStatus().equals("Dead")) alive = true;
             }
-            if (Main.whiteTeam.get(i).getPosition().isEqual(position)) {
-                str = "|" + AnsiColors.ANSI_BLUE + Main.whiteTeam.get(i).getName().charAt(0) + AnsiColors.ANSI_RESET;
+            if (Main.whiteTeam.get(i).getPosition().isEqual(position) && !alive) {
+                if (Main.whiteTeam.get(i).getStatus().equals("Dead")) {
+                    str = "\u2551" + AnsiColors.ANSI_RED + Main.whiteTeam.get(i).getName().charAt(0) + AnsiColors.ANSI_RESET;
+                } else
+                    str = "|" + AnsiColors.ANSI_BLUE + Main.whiteTeam.get(i).getName().charAt(0) + AnsiColors.ANSI_RESET;
             }
         }
         return str;
     }
 
-    public static String printTopic(){
+    public static String printTopic() {
         StringBuilder sb = new StringBuilder();
         sb.append("Name         ");
-        sb.append("status    ");
-        sb.append("attack    ");
-        sb.append("defence   ");
-        sb.append("shoot     ");
-        sb.append("damage    ");
-        sb.append("health    ");
-        sb.append("speed     ");
-        sb.append("delivery  ");
-        sb.append("magic     ");
+        sb.append("Status    ");
+//        sb.append("attack    ");
+//        sb.append("defence   ");
+//        sb.append("shoot     ");
+//        sb.append("damage    ");
+        sb.append("Health      ");
+//        sb.append("speed     ");
+//        sb.append("delivery  ");
+//        sb.append("magic     ");
         return sb.toString();
     }
 
-    public static String getHeroData (Vector2 position){
+    public static String getHeroData(Coordinates position) {
         String str = "";
         for (int i = 0; i < Main.BAND_SIZE; i++) {
             if (Main.darkTeam.get(i).getPosition().isEqual(position)) {
@@ -76,7 +85,6 @@ public class ConsoleView {
         }
         return str;
     }
-
 
     public static String formatDiv(String str) {
         return str.replace('a', '\u2554')
