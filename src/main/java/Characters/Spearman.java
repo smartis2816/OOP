@@ -7,8 +7,8 @@ import View.Coordinates;
 import java.util.ArrayList;
 
 public class Spearman extends Warrior {
-    public Spearman(ArrayList<BasicHero> band, int x, int y) {
-        super(4, 5, 0, new int[]{1, 3}, 10, 10, 4, false, false, "Spearman", 3);
+    public Spearman(ArrayList<BasicHero> band, int x, int y, int amount) {
+        super(4, 5, 0, new int[]{1, 3}, 10, 10, 4, false, false, "Spearman", 3, amount);
         super.band = band;
         super.position = new Coordinates(x, y);
     }

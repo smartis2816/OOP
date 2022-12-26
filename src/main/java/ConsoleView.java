@@ -67,6 +67,7 @@ public class ConsoleView {
 //        sb.append("shoot     ");
 //        sb.append("damage    ");
         sb.append("Health      ");
+        sb.append("Amount      ");
 //        sb.append("speed     ");
 //        sb.append("delivery  ");
 //        sb.append("magic     ");

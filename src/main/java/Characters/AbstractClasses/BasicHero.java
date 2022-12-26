@@ -22,8 +22,9 @@ public abstract class BasicHero implements BasicBehaviour {
     protected ArrayList<BasicHero> band;
     protected Coordinates position;
     protected int priority;
+    protected int amount;
 
-    public BasicHero(int attack, int defence, int shoot, int[] damage, int maxHealth, int currentHealth, int speed, boolean delivery, boolean magic, String name, int priority) {
+    public BasicHero(int attack, int defence, int shoot, int[] damage, int maxHealth, int currentHealth, int speed, boolean delivery, boolean magic, String name, int priority, int amount) {
         this.attack = attack;
         this.defence = defence;
         this.shoot = shoot;
@@ -36,6 +37,7 @@ public abstract class BasicHero implements BasicBehaviour {
         this.name = name;
         this.status = "Ready";
         this.priority = priority;
+        this.amount = amount;
     }
 
     public void step(ArrayList<BasicHero> band) {
@@ -63,6 +65,7 @@ public abstract class BasicHero implements BasicBehaviour {
 //        parameters.add(Integer.toString(shoot));
 //        parameters.add(Arrays.toString(damage));
         parameters.add(currentHealth + "/" + maxHealth);
+        parameters.add(Integer.toString(amount));
 //        parameters.add(Integer.toString(speed));
 //        parameters.add(String.valueOf(delivery));
 //        parameters.add(String.valueOf(magic));
@@ -88,13 +91,14 @@ public abstract class BasicHero implements BasicBehaviour {
         if (power == 0) damageValue = (this.damage[0] + this.damage[1]) / 2;
         if (power > 0) damageValue = this.damage[1];
         if (power < 0) damageValue = this.damage[0];
-        return damageValue;
+        return damageValue * amount;
     }
 
     protected void checkAliveOrDead(BasicHero hero) {
-        if (hero.getCurrentHealth() <= 0) {
+        if (hero.amount <= 0 && hero.currentHealth <= 0) {
             hero.setStatus("Dead");
-            hero.setHealth(0);
+            hero.currentHealth = 0;
+            hero.amount = 0;
         }
     }
 
@@ -112,40 +116,75 @@ public abstract class BasicHero implements BasicBehaviour {
         }
         return enemies.get(targetIndex);
     }
+    protected BasicHero findTargetWithLowestHP(ArrayList<BasicHero> enemies) {
+        BasicHero target = enemies.get(0);
+        for (BasicHero hero:enemies) {
+            if (hero.currentHealth < target.currentHealth)
+                target = hero;
+        }
+        return target;
+    }
+
 
     protected void moveWarrior(BasicHero target) {
-        int x = this.getPosition().x;
-        int y = this.getPosition().y;
-        if (target.getPosition().y > this.position.y && checkPosition(x, y++)) {
-            this.setPosition(x, y++);
-        } else if (target.getPosition().y < this.position.y && checkPosition(x, y--)) {
-            this.setPosition(x, y--);
-        } else if (target.getPosition().x > this.position.x && checkPosition(x++, y)) {
-            this.setPosition(x++, y);
-        } else if (target.getPosition().x < this.position.x && checkPosition(x--, y)) {
-            this.setPosition(x--, y);
+        int x = this.position.x;
+        int y = this.position.y;
+        if (target.position.y > this.position.y && checkPosition(x, y++)) {
+            this.position.y += 1;
+        } else if (target.position.y < this.position.y && checkPosition(x, y--)) {
+            this.position.y -= 1;
+        } else if (target.position.x > this.position.x && checkPosition(x++, y)) {
+            this.position.x += 1;
+        } else if (target.position.x < this.position.x && checkPosition(x--, y)) {
+            this.position.x -= 1;
         }
     }
 
     protected void makeShot(BasicHero target) {
+        int stackHP = (target.amount - 1) * target.maxHealth + target.currentHealth;
         int damageValue = getDamageValue(target);
         float distance = this.getPosition().getDistance(target);
-        if (this.getSpeed() > distance)
-            target.setHealth(target.getCurrentHealth() - damageValue);
-        else target.setHealth((target.getCurrentHealth() - damageValue / 2));
+        if (this.getSpeed() > distance) {
+            stackHP -= damageValue;
+            target.amount = stackHP / target.maxHealth;
+            if (stackHP % target.maxHealth != 0)
+                target.currentHealth = stackHP - target.amount * target.maxHealth;
+        } else {
+            stackHP -= damageValue / 2;
+            target.amount = stackHP / target.maxHealth;
+            if (stackHP % target.maxHealth != 0)
+                target.currentHealth = stackHP - target.amount * target.maxHealth;
+                target.amount += 1;
+        }
         checkAliveOrDead(target);
     }
 
-    protected void makeHit(BasicHero target) {
-        int damageValue = getDamageValue(target);
-        target.setHealth(target.getCurrentHealth() - damageValue);
+    protected void makeHit(BasicHero target, int damageValue) {
+        int stackHP = (target.amount - 1) * target.maxHealth + target.currentHealth;
+        stackHP -= damageValue;
+        target.amount = stackHP / target.maxHealth;
+        if (stackHP % target.maxHealth != 0) {
+            target.currentHealth = stackHP - target.amount * target.maxHealth;
+            target.amount += 1;
+        }
         checkAliveOrDead(target);
     }
+
+    protected void getHeal(int heal) {
+        this.currentHealth -= heal;
+        if (this.currentHealth > this.maxHealth) this.currentHealth = this.maxHealth;
+    }
+
+    protected void resurrectHero() {
+        this.amount = 1;
+        this.currentHealth = 1;
+    }
+
 
     protected boolean checkPosition(int x, int y) {
         Coordinates position = new Coordinates(x, y);
-        for (int i = 0; i < 10; i++) {
-            if (position.isEqual(this.band.get(i).getPosition())) return false;
+        for (BasicHero hero:band) {
+            if (position.isEqual(hero.position)) return false;
         }
         return true;
     }
@@ -160,7 +199,7 @@ public abstract class BasicHero implements BasicBehaviour {
     }
 
     public Coordinates getPosition() {
-        return position;
+        return this.position;
     }
 
     public void setPosition(int x, int y) {
@@ -188,8 +227,8 @@ public abstract class BasicHero implements BasicBehaviour {
         return damage;
     }
 
-    public void setHealth(int amount) {
-        this.currentHealth = amount;
+    public void setHealth(int num) {
+        this.currentHealth = num;
     }
 
     public int getPriority() {
@@ -207,4 +246,6 @@ public abstract class BasicHero implements BasicBehaviour {
     public void setStatus(String status) {
         this.status = status;
     }
+
+
 }

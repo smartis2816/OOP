@@ -10,6 +10,14 @@ public class Coordinates {
         this.y = y;
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
     public boolean isEqual(Coordinates position) {
         if (position.x == x & position.y == y) return true;
         else return false;

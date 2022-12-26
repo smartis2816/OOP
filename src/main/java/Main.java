@@ -17,9 +17,9 @@ public class Main {
             ConsoleView.view();
             System.out.println("Press ENTER");
             scanner.nextLine();
-            makeTurn(darkTeam, whiteTeam);
-            //darkTeam.forEach(hero -> hero.step(whiteTeam));
-            //whiteTeam.forEach(hero -> hero.step(darkTeam));
+            //makeTurn(darkTeam, whiteTeam);
+            darkTeam.forEach(hero -> hero.step(whiteTeam));
+            whiteTeam.forEach(hero -> hero.step(darkTeam));
         }
     }
 
@@ -31,20 +31,20 @@ public class Main {
         int y = 1;
         for (int i = 0; i < BAND_SIZE; i++) {
             switch (r.nextInt(1, 5)) {
-                case 1 -> darkTeam.add(new Peasant(darkTeam, x++, y));
-                case 2 -> darkTeam.add(new Spearman(darkTeam, x++, y));
-                case 3 -> darkTeam.add(new Crossbowman(darkTeam, x++, y));
-                case 4 -> darkTeam.add(new Warlock(darkTeam, x++, y));
+                case 1 -> darkTeam.add(new Peasant(darkTeam, x++, y, 5));
+                case 2 -> darkTeam.add(new Spearman(darkTeam, x++, y, 5));
+                case 3 -> darkTeam.add(new Crossbowman(darkTeam, x++, y, 5));
+                case 4 -> darkTeam.add(new Warlock(darkTeam, x++, y, 5));
             }
         }
         x = 1;
         y = 10;
         for (int i = 0; i < BAND_SIZE; i++) {
             switch (r.nextInt(1, 5)) {
-                case 1 -> whiteTeam.add(new Peasant(whiteTeam, x++, y));
-                case 2 -> whiteTeam.add(new Rogue(whiteTeam, x++, y));
-                case 3 -> whiteTeam.add(new Sniper(whiteTeam, x++, y));
-                case 4 -> whiteTeam.add(new Monk(whiteTeam, x++, y));
+                case 1 -> whiteTeam.add(new Peasant(whiteTeam, x++, y, 5));
+                case 2 -> whiteTeam.add(new Rogue(whiteTeam, x++, y, 5));
+                case 3 -> whiteTeam.add(new Sniper(whiteTeam, x++, y, 5));
+                case 4 -> whiteTeam.add(new Monk(whiteTeam, x++, y, 5));
             }
         }
     }
