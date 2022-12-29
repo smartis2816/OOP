@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Warlock extends Healer {
     public Warlock(ArrayList<BasicHero> band, int x, int y, int amount) {
-        super(17, 12, 0, new int[]{-5, -5}, 30, 30, 9, true, false, "Warlock", 2, amount);
+        super(17, 12, 0, new int[]{-5, -5}, 30, 30, 9, true, false, "Warlock", amount);
         super.band = band;
         super.position = new Coordinates(x, y);
     }

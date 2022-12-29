@@ -40,48 +40,38 @@ public class ConsoleView {
     private static String getChar(Coordinates position) {
         String str = "| ";
         for (int i = 0; i < Main.BAND_SIZE; i++) {
-            boolean alive = false;
-            if (Main.darkTeam.get(i).getPosition().isEqual(position)) {
-                if (Main.darkTeam.get(i).getStatus().equals("Dead")) {
-                    str = "\u2551" + AnsiColors.ANSI_RED + Main.darkTeam.get(i).getName().charAt(0) + AnsiColors.ANSI_RESET;
-                } else
-                    str = "\u2551" + AnsiColors.ANSI_GREEN + Main.darkTeam.get(i).getName().charAt(0) + AnsiColors.ANSI_RESET;
-                if (!Main.darkTeam.get(i).getStatus().equals("Dead")) alive = true;
+            if (Main.darkBand.get(i).getPosition().isEqual(position)) {
+                if (Main.darkBand.get(i).getStatus().equals("Dead")) {
+                    str = "\u2551" + AnsiColors.ANSI_RED + Main.darkBand.get(i).getName().charAt(0) + AnsiColors.ANSI_RESET;
+                } else {
+                    str = "\u2551" + AnsiColors.ANSI_GREEN + Main.darkBand.get(i).getName().charAt(0) + AnsiColors.ANSI_RESET;
+                }
             }
-            if (Main.whiteTeam.get(i).getPosition().isEqual(position) && !alive) {
-                if (Main.whiteTeam.get(i).getStatus().equals("Dead")) {
-                    str = "\u2551" + AnsiColors.ANSI_RED + Main.whiteTeam.get(i).getName().charAt(0) + AnsiColors.ANSI_RESET;
-                } else
-                    str = "|" + AnsiColors.ANSI_BLUE + Main.whiteTeam.get(i).getName().charAt(0) + AnsiColors.ANSI_RESET;
+            if (Main.whiteBand.get(i).getPosition().isEqual(position)) {
+                if (Main.whiteBand.get(i).getStatus().equals("Dead")) {
+                    str = "\u2551" + AnsiColors.ANSI_RED + Main.whiteBand.get(i).getName().charAt(0) + AnsiColors.ANSI_RESET;
+                } else {
+                    str = "|" + AnsiColors.ANSI_BLUE + Main.whiteBand.get(i).getName().charAt(0) + AnsiColors.ANSI_RESET;
+                }
             }
         }
         return str;
     }
 
     public static String printTopic() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Name         ");
-        sb.append("Status    ");
-//        sb.append("attack    ");
-//        sb.append("defence   ");
-//        sb.append("shoot     ");
-//        sb.append("damage    ");
-        sb.append("Health      ");
-        sb.append("Amount      ");
-//        sb.append("speed     ");
-//        sb.append("delivery  ");
-//        sb.append("magic     ");
-        return sb.toString();
+        return "Name         " +
+                "Status      " +
+                "Health      " +
+                "Amount      ";
     }
 
     public static String getHeroData(Coordinates position) {
         String str = "";
         for (int i = 0; i < Main.BAND_SIZE; i++) {
-            if (Main.darkTeam.get(i).getPosition().isEqual(position)) {
-                str = Main.darkTeam.get(i).getParameters();
-            }
-            if (Main.whiteTeam.get(i).getPosition().isEqual(position)) {
-                str = Main.whiteTeam.get(i).getParameters();
+            if (Main.darkBand.get(i).getPosition().isEqual(position)) {
+                str = Main.darkBand.get(i).getParameters();
+            } else if (Main.whiteBand.get(i).getPosition().isEqual(position)) {
+                str = Main.whiteBand.get(i).getParameters();
             }
         }
         return str;

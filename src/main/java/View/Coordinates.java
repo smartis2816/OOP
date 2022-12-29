@@ -19,8 +19,7 @@ public class Coordinates {
     }
 
     public boolean isEqual(Coordinates position) {
-        if (position.x == x & position.y == y) return true;
-        else return false;
+        return position.x == x & position.y == y;
     }
 
     public float getDistance(BasicHero hero){
